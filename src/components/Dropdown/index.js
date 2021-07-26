@@ -1,6 +1,9 @@
 // @flow
 import React from "react";
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronUp, faChevronDown } from "@fortawesome/free-solid-svg-icons";
+
 import { DropdownMenu } from "./DropdownMenu";
 import "./Dropdown.css";
 
@@ -33,7 +36,11 @@ export const Dropdown = ({
     <>
       <div className="container">
         <div className="header">{selectedItem}</div>
-        <button onClick={handleToggle}>Toggle</button>
+        <FontAwesomeIcon
+          onClick={handleToggle}
+          icon={isVisible ? faChevronDown : faChevronUp}
+          className="button"
+        />
       </div>
       {isVisible && (
         <div className="dropdown-menu-container">
