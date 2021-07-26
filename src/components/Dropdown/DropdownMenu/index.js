@@ -1,5 +1,5 @@
 import { MenuItem } from "../MenuItem";
-
+import "./DropdownMenu.css";
 export const DropdownMenu = ({ options, onSelect }) => {
   return (
     <ul>
