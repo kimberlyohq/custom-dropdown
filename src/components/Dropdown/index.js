@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { DropdownMenu } from "./DropdownMenu";
+import "./Dropdown.css";
 
 export const Dropdown = ({ options }) => {
   // set the default item to the first item
@@ -7,6 +8,7 @@ export const Dropdown = ({ options }) => {
   const [isVisible, setIsVisible] = useState(true);
 
   const onSelect = (index: number) => {
+    setIsVisible(false);
     setSelectedItem(options[index]);
   };
 
@@ -16,9 +18,15 @@ export const Dropdown = ({ options }) => {
 
   return (
     <>
-      <p>{selectedItem}</p>
-      <button onClick={handleToggle}>Toggle</button>
-      {isVisible && <DropdownMenu options={options} onSelect={onSelect} />}
+      <div className="container">
+        <div className="header">{selectedItem}</div>
+        <button onClick={handleToggle}>Toggle</button>
+      </div>
+      {isVisible && (
+        <div className="dropdownMenuContainer">
+          <DropdownMenu options={options} onSelect={onSelect} />
+        </div>
+      )}
     </>
   );
 };
