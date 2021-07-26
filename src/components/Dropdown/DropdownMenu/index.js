@@ -1,6 +1,19 @@
+// @flow
+
+import React from "react";
+
 import { MenuItem } from "../MenuItem";
 import "./DropdownMenu.css";
-export const DropdownMenu = ({ options, onSelect }) => {
+
+type DropdownMenuProps = {
+  options: Array<String>,
+  onSelect: (index: number) => void,
+};
+
+export const DropdownMenu = ({
+  options,
+  onSelect,
+}: DropdownMenuProps): React$Element<"ul"> => {
   return (
     <ul>
       {options.map((option, index) => (

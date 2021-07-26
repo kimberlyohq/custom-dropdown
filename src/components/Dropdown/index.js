@@ -1,10 +1,23 @@
+// @flow
+import React from "react";
 import { useState } from "react";
 import { DropdownMenu } from "./DropdownMenu";
 import "./Dropdown.css";
 
-export const Dropdown = ({ options }) => {
+type DropdownProps = {
+  options: Array<string>,
+  placement: "top" | "bottom",
+};
+
+export const Dropdown = ({
+  options,
+  placement,
+}: DropdownProps): React$Element<React$FragmentType> => {
   // set the default item to the first item
+  // TODO: Need to check if options is defined
   const [selectedItem, setSelectedItem] = useState(options[0]);
+
+  // TODO: set default isVisible to false
   const [isVisible, setIsVisible] = useState(true);
 
   const onSelect = (index: number) => {
@@ -23,7 +36,7 @@ export const Dropdown = ({ options }) => {
         <button onClick={handleToggle}>Toggle</button>
       </div>
       {isVisible && (
-        <div className="dropdownMenuContainer">
+        <div className="dropdown-menu-container">
           <DropdownMenu options={options} onSelect={onSelect} />
         </div>
       )}

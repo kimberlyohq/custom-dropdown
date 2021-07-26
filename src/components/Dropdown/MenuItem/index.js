@@ -1,5 +1,16 @@
+// @flow
+import React from "react";
 import "./MenuItem.css";
-export const MenuItem = ({ onSelect, item }) => {
+
+type MenuItemProps = {
+  onSelect: () => void,
+  item: string,
+};
+
+export const MenuItem = ({
+  onSelect,
+  item,
+}: MenuItemProps): React$Element<"li"> => {
   return (
     <li onClick={onSelect} className="list-item">
       {item}
