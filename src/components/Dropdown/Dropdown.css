@@ -11,11 +11,11 @@
 }
 
 .header {
-  padding-left: 5px;
+  padding: 2px 0px 2px 5px;
 }
 
 .button {
-  padding-right: 2px;
+  padding: 2px 5px 2px 0px;
 }
 
 .dropdown-menu-container {

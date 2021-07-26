@@ -4,7 +4,7 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronUp, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
-import { DropdownMenu } from "./DropdownMenu";
+import {DropdownMenu} from "./DropdownMenu"
 import "./Dropdown.css";
 
 type DropdownProps = {
