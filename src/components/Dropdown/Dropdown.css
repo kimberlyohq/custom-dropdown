@@ -1,3 +1,7 @@
+.dropdown {
+  position: relative;
+}
+
 .container {
   display: flex;
   flex-direction: row;

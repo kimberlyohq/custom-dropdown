@@ -9,17 +9,19 @@ import "./Dropdown.css";
 
 type Placements = "top" | "bottom";
 type DropdownProps = {
-  options: Array<string>,
+    options: Array<string>,
+  placeholder: string;
   placement: Placements,
 };
 
 export const Dropdown = ({
   options,
   placement,
-}: DropdownProps): React$Element<React$FragmentType> => {
+  placeholder
+}: DropdownProps): React$Element<'div'> => {
   // set the default item to the first item
   // TODO: Need to check if options is defined
-  const [selectedItem, setSelectedItem] = useState(options[0]);
+  const [selectedItem, setSelectedItem] = useState(placeholder);
 
   // TODO: set default isVisible to false
   const [isVisible, setIsVisible] = useState(true);
@@ -34,7 +36,7 @@ export const Dropdown = ({
   };
 
   return (
-    <>
+    <div className="dropdown">
       <div className="container">
         <div className="header">{selectedItem}</div>
         <FontAwesomeIcon
@@ -48,6 +50,6 @@ export const Dropdown = ({
           <DropdownMenu options={options} onSelect={onSelect} />
         </div>
       )}
-    </>
+    </div>
   );
 };

@@ -9,7 +9,7 @@ const OPTIONS = ["Item 1", "Item 2", "Item 3"];
 function App(): React$Element<"div"> {
   return (
     <div className="App">
-      <Dropdown options={OPTIONS} placement="bottom" />
+      <Dropdown options={OPTIONS} placeholder="Select" placement="bottom" />
     </div>
   );
 }
