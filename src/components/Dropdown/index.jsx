@@ -18,8 +18,8 @@ type DropdownProps = {
 
 export const Dropdown = ({
   options,
-  placement,
-  placeholder,
+  placement = "bottom",
+  placeholder = "Search",
   onSelect = (index: number) => {},
 }: DropdownProps): React$Element<"div"> => {
   const [selectedItem, setSelectedItem] = useState(placeholder);
