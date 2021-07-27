@@ -13,12 +13,14 @@ type DropdownProps = {
   options: Array<string>,
   placeholder: string,
   placement: Placements,
+  onSelect?: (index: number) => any,
 };
 
 export const Dropdown = ({
   options,
   placement,
   placeholder,
+  onSelect = (index: number) => {},
 }: DropdownProps): React$Element<"div"> => {
   const [selectedItem, setSelectedItem] = useState(placeholder);
 
@@ -40,9 +42,10 @@ export const Dropdown = ({
     };
   });
 
-  const onSelect = (index: number) => {
+  const handleSelect = (index: number) => {
     setIsVisible(false);
     setSelectedItem(options[index]);
+    onSelect(index);
   };
 
   const handleToggle = () => {
@@ -65,7 +68,7 @@ export const Dropdown = ({
             {options.map((option, index) => (
               <MenuItem
                 key={index}
-                onSelect={() => onSelect(index)}
+                onSelect={() => handleSelect(index)}
                 item={option}
               />
             ))}
