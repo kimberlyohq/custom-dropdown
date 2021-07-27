@@ -43,9 +43,9 @@
 }
 
 .dropdown-menu-container.top {
-  bottom: 50px;
+  transform: translate(0px, -160px);
 }
 
 .dropdown-menu-container.bottom {
-  top: 50px;
+  transform: translate(0px, 10px);
 }
