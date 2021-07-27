@@ -4,12 +4,13 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronUp, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
-import {DropdownMenu} from "./DropdownMenu"
+import { DropdownMenu } from "./DropdownMenu";
 import "./Dropdown.css";
 
+type Placements = "top" | "bottom";
 type DropdownProps = {
   options: Array<string>,
-  placement: "top" | "bottom",
+  placement: Placements,
 };
 
 export const Dropdown = ({
