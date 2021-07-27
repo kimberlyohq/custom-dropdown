@@ -62,7 +62,7 @@ export const Dropdown = ({
         />
       </div>
       {isVisible && (
-        <div className="dropdown-menu-container">
+        <div className={`dropdown-menu-container ${placement}`}>
           <DropdownMenu options={options} onSelect={onSelect} />
         </div>
       )}
