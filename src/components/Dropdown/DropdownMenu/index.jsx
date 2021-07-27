@@ -6,7 +6,7 @@ import { MenuItem } from "../MenuItem";
 import "./DropdownMenu.css";
 
 type DropdownMenuProps = {
-  options: Array<String>,
+  options: Array<string>,
   onSelect: (index: number) => void,
 };
 
