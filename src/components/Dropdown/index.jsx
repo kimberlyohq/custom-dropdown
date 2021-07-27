@@ -19,8 +19,7 @@ export const Dropdown = ({
   placement,
   placeholder,
 }: DropdownProps): React$Element<"div"> => {
-  // set the default item to the first item
-  // TODO: Need to check if options is defined
+ 
   const [selectedItem, setSelectedItem] = useState(placeholder);
 
   const [isVisible, setIsVisible] = useState(false);
