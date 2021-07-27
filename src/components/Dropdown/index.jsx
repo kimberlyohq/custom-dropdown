@@ -29,7 +29,6 @@ export const Dropdown = ({
   const ref = useRef(null);
 
   const handleOutsideClick = (event) => {
-    event.preventDefault();
     if (isVisible && event.target !== ref.current) {
       setIsVisible(false);
     }
@@ -48,7 +47,8 @@ export const Dropdown = ({
     onSelect(index);
   };
 
-  const handleToggle = () => {
+  const handleToggle = (event) => {
+    event.stopPropagation();
     setIsVisible(!isVisible);
   };
 
