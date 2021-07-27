@@ -1,5 +1,6 @@
 // @flow
-import React from "react";
+import * as React from "react";
+import ReactDOM from "react-dom";
 import { useState, useRef, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronUp, faChevronDown } from "@fortawesome/free-solid-svg-icons";
@@ -7,7 +8,6 @@ import { faChevronUp, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { DropdownMenu } from "./DropdownMenu";
 import "./Dropdown.css";
 import { MenuItem } from "./MenuItem/index.jsx";
-import { Portal } from "./Portal.jsx";
 
 type Placements = "top" | "bottom";
 type DropdownProps = {
@@ -22,7 +22,7 @@ export const Dropdown = ({
   placement = "bottom",
   placeholder = "Select",
   onSelect = (index: number) => {},
-}: DropdownProps): React$Element<React$FragmentType> => {
+}: DropdownProps): React.Portal => {
   const [selectedItem, setSelectedItem] = useState(placeholder);
 
   const [isVisible, setIsVisible] = useState(false);
@@ -53,33 +53,30 @@ export const Dropdown = ({
     setIsVisible(!isVisible);
   };
 
-  return (
-    <>
-      <Portal>
-        <div className="dropdown">
-          <div ref={ref} className="container">
-            <div className="selected-item">{selectedItem}</div>
-            <FontAwesomeIcon
-              onClick={handleToggle}
-              icon={isVisible ? faChevronDown : faChevronUp}
-              className="button"
-            />
-          </div>
-          {isVisible && (
-            <div className={`dropdown-menu-container ${placement}`}>
-              <DropdownMenu>
-                {options.map((option, index) => (
-                  <MenuItem
-                    key={index}
-                    onSelect={() => handleSelect(index)}
-                    item={option}
-                  />
-                ))}
-              </DropdownMenu>
-            </div>
-          )}
+  return ReactDOM.createPortal(
+    <div className="dropdown">
+      <div ref={ref} className="container">
+        <div className="selected-item">{selectedItem}</div>
+        <FontAwesomeIcon
+          onClick={handleToggle}
+          icon={isVisible ? faChevronDown : faChevronUp}
+          className="button"
+        />
+      </div>
+      {isVisible && (
+        <div className={`dropdown-menu-container ${placement}`}>
+          <DropdownMenu>
+            {options.map((option, index) => (
+              <MenuItem
+                key={index}
+                onSelect={() => handleSelect(index)}
+                item={option}
+              />
+            ))}
+          </DropdownMenu>
         </div>
-      </Portal>
-    </>
+      )}
+    </div>,
+    document.getElementById("dropdown-root")
   );
 };
