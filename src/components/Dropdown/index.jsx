@@ -52,7 +52,7 @@ export const Dropdown = ({
   return (
     <div className="dropdown">
       <div ref={ref} className="container">
-        <div className="header">{selectedItem}</div>
+        <div className="selected-item">{selectedItem}</div>
         <FontAwesomeIcon
           onClick={handleToggle}
           icon={isVisible ? faChevronDown : faChevronUp}
