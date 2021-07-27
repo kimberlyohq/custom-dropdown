@@ -6,6 +6,7 @@ import { faChevronUp, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 import { DropdownMenu } from "./DropdownMenu";
 import "./Dropdown.css";
+import { MenuItem } from "./MenuItem/index.jsx";
 
 type Placements = "top" | "bottom";
 type DropdownProps = {
@@ -19,7 +20,6 @@ export const Dropdown = ({
   placement,
   placeholder,
 }: DropdownProps): React$Element<"div"> => {
- 
   const [selectedItem, setSelectedItem] = useState(placeholder);
 
   const [isVisible, setIsVisible] = useState(false);
@@ -61,7 +61,15 @@ export const Dropdown = ({
       </div>
       {isVisible && (
         <div className={`dropdown-menu-container ${placement}`}>
-          <DropdownMenu options={options} onSelect={onSelect} />
+          <DropdownMenu>
+            {options.map((option, index) => (
+              <MenuItem
+                key={index}
+                onSelect={() => onSelect(index)}
+                item={option}
+              />
+            ))}
+          </DropdownMenu>
         </div>
       )}
     </div>

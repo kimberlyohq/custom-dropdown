@@ -4,7 +4,7 @@ import React from "react";
 import "./App.css";
 import { Dropdown } from "./components/Dropdown";
 
-const OPTIONS = ["Item 1", "Item 2", "Item 3", "Item 1", "Item 2", "Item 3"];
+const OPTIONS = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6"];
 
 function App(): React$Element<"div"> {
   return (

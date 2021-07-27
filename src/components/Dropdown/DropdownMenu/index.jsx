@@ -2,23 +2,14 @@
 
 import React from "react";
 
-import { MenuItem } from "../MenuItem";
 import "./DropdownMenu.css";
 
 type DropdownMenuProps = {
-  options: Array<string>,
-  onSelect: (index: number) => void,
+  children?: React$Node,
 };
 
 export const DropdownMenu = ({
-  options,
-  onSelect,
+  children,
 }: DropdownMenuProps): React$Element<"ul"> => {
-  return (
-    <ul>
-      {options.map((option, index) => (
-        <MenuItem key={index} onSelect={() => onSelect(index)} item={option} />
-      ))}
-    </ul>
-  );
+  return <ul>{children}</ul>;
 };
