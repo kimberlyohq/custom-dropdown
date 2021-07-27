@@ -23,8 +23,7 @@ export const Dropdown = ({
   // TODO: Need to check if options is defined
   const [selectedItem, setSelectedItem] = useState(placeholder);
 
-  // TODO: set default isVisible to false
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
 
   const ref = useRef(null);
 
