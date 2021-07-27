@@ -10,6 +10,7 @@ function App(): React$Element<"div"> {
   return (
     <div className="App">
       <Dropdown options={OPTIONS} placeholder="- Select -" placement="top" />
+      <Dropdown options={OPTIONS} placeholder="- Select -" placement="bottom" />
     </div>
   );
 }
